@@ -115,11 +115,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  BSP_LED_On(LED_YELLOW);
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  HAL_Delay(500);
+	  BSP_LED_Toggle(LED_YELLOW);
   }
   /* USER CODE END 3 */
 }

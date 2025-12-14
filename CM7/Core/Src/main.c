@@ -133,6 +133,20 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 /* USER CODE BEGIN Boot_Mode_Sequence_2 */
+/* USER CODE END Boot_Mode_Sequence_2 */
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* Initialize leds */
+  BSP_LED_Init(LED_YELLOW);
+  BSP_LED_Init(LED_RED);
+
 #if defined(DUAL_CORE_BOOT_SYNC_SEQUENCE)
 /* When system initialization is finished, Cortex-M7 will release Cortex-M4 by means of
 HSEM notification */
@@ -150,15 +164,6 @@ if ( timeout < 0 )
 Error_Handler();
 }
 #endif /* DUAL_CORE_BOOT_SYNC_SEQUENCE */
-/* USER CODE END Boot_Mode_Sequence_2 */
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
@@ -193,10 +198,6 @@ Error_Handler();
   /* add events, ... */
   /* USER CODE END RTOS_EVENTS */
 
-  /* Initialize leds */
-  BSP_LED_Init(LED_YELLOW);
-  BSP_LED_Init(LED_RED);
-
   /* Initialize USER push-button, will be used to trigger an interrupt each time it's pressed.*/
   BSP_PB_Init(BUTTON_USER, BUTTON_MODE_EXTI);
 
@@ -218,12 +219,15 @@ Error_Handler();
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  BSP_LED_On(LED_RED);
   while (1)
   {
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  BSP_LED_Toggle(LED_RED);
+	  HAL_Delay (100);   /* Insert delay 100 ms */
   }
   /* USER CODE END 3 */
 }
