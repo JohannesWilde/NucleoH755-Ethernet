@@ -198,6 +198,7 @@ Error_Handler();
   {
     Error_Handler();
   }
+  printf("Virtual COM Port setup.\n" );
 
   /* Start scheduler */
   osKernelStart();
