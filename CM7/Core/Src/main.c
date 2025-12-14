@@ -170,7 +170,6 @@ Error_Handler();
   /* USER CODE END RTOS_THREADS */
 
   /* Initialize leds */
-  BSP_LED_Init(LED_GREEN);
   BSP_LED_Init(LED_YELLOW);
   BSP_LED_Init(LED_RED);
 
