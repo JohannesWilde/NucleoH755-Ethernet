@@ -144,6 +144,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* Initialize leds */
+  BSP_LED_Init(LED_GREEN);
   BSP_LED_Init(LED_YELLOW);
   BSP_LED_Init(LED_RED);
 
